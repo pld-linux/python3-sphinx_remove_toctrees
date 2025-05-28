@@ -7,7 +7,7 @@ Summary:	Remove toctrees from Sphinx pages
 Summary(pl.UTF-8):	Usuwanie drzew ze spisem treści ze stron Sphinksa
 Name:		python3-sphinx_remove_toctrees
 Version:	1.0.0.post1
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/sphinx_remove_toctrees/
