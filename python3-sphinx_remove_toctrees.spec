@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_without	doc	# API documentation
-%bcond_with	tests	# unit tests (not included in sdist)
+%bcond_with	tests	# unit tests
 
 Summary:	Remove toctrees from Sphinx pages
 Summary(pl.UTF-8):	Usuwanie drzew ze spisem treści ze stron Sphinksa
@@ -15,8 +15,9 @@ Source0:	https://files.pythonhosted.org/packages/source/s/sphinx_remove_toctrees
 # Source0-md5:	a348043f08b63f73a767206e2ced0c9d
 URL:		https://pypi.org/project/sphinx_remove_toctrees/
 BuildRequires:	python3-build
+BuildRequires:	python3-hatchling
 BuildRequires:	python3-installer
-BuildRequires:	python3-modules >= 1:3.6
+BuildRequires:	python3-modules >= 1:3.9
 %if %{with tests}
 BuildRequires:	python3-Sphinx >= 4.5
 BuildRequires:	python3-ipython
@@ -25,14 +26,14 @@ BuildRequires:	python3-pytest
 BuildRequires:	python3-sphinx_book_theme
 %endif
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.714
+BuildRequires:	rpmbuild(macros) >= 2.044
 %if %{with doc}
 BuildRequires:	python3-ipython
 BuildRequires:	python3-myst_parser
 BuildRequires:	python3-sphinx_book_theme
-BuildRequires:	sphinx-pdg-3 >= 4.5
+BuildRequires:	sphinx-pdg-3 >= 5
 %endif
-Requires:	python3-modules >= 1:3.6
+Requires:	python3-modules >= 1:3.9
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -72,7 +73,7 @@ Dokumentacja API modułu Pythona sphinx_remove_toctrees.
 
 %if %{with tests}
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
-%{__python3} -m pytest tests
+%{__python3} -m pytest sphinx_remove_toctrees/tests
 %endif
 
 %if %{with doc}
